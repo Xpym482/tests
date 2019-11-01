@@ -1,6 +1,16 @@
 import React from "react";
 import {TiHeartFullOutline} from "react-icons/ti";
 
+let Likes = 0;
+
+function handeClick() {
+    return (
+        <div className={"likes"}>
+            Likes: {Likes + 1}
+        </div>
+    );
+}
+
 const Test2 = () => {
   return (
     <div>
@@ -12,11 +22,11 @@ const Test2 = () => {
       </div>
 
       <div style={{display:"flex", alignItems: "center"}}>
-        <div>
-          Likes: [replace me]
+        <div className={"likes"}>
+          Likes: {Likes}
         </div>
         <TiHeartFullOutline />
-        <div>Click me</div>
+        <div onClick={handeClick}>Click me</div>
       </div>
     </div>
   );
