@@ -17,13 +17,16 @@ const ITEMS = [
   }
 ];
 
+
 const Test1 = () => {
   return (
     <div>
       <div className={"description"}>
         Ülesanne 1:
         <p>
-          Lehel tuleb kuvada kõik tooted muutujas <code>ITEMS</code>.
+          Lehel tuleb kuvada kõik tooted muutujas
+          <code>
+        </code>.
           Iga toote kohta peab olema nimi ja hind.
           Iga toode peab olema uuel real.
         </p>
@@ -31,9 +34,16 @@ const Test1 = () => {
         <img style={{width: 200}} src={test1Example}/>
       </div>
       <div>
-        [replace me]
+        {
+          ITEMS.map(item => {
+          <div key={item.name}>{item.name} Price: {item.price}</div>;
+          })
+        }
       </div>
-      <div><span className={"bold"}>Summa kokku:</span> [replace me]</div>
+      <div><span className={"bold"}>Summa kokku:</span>{ITEMS.map(item => {
+        item.price;
+      })}
+      </div>
     </div>
   );
 };
