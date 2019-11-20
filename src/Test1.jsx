@@ -24,9 +24,7 @@ const Test1 = () => {
       <div className={"description"}>
         Ülesanne 1:
         <p>
-          Lehel tuleb kuvada kõik tooted muutujas
-          <code>
-        </code>.
+          Lehel tuleb kuvada kõik tooted muutujas <code>ITEMS</code>.
           Iga toote kohta peab olema nimi ja hind.
           Iga toode peab olema uuel real.
         </p>
@@ -35,14 +33,17 @@ const Test1 = () => {
       </div>
       <div>
         {
-          ITEMS.map(item => {
-          <div key={item.name}>{item.name} Price: {item.price}</div>;
+          ITEMS.map((item, index) => {
+            return(
+             <div key={index}>Name: {item.name} Price: {item.price}</div>
+            );
           })
         }
       </div>
-      <div><span className={"bold"}>Summa kokku:</span>{ITEMS.map(item => {
-        item.price;
-      })}
+      <div><span className={"bold"}>Summa kokku: </span>
+        {
+          ITEMS.reduce((prev, curr) => prev + curr.price, 0)
+        }
       </div>
     </div>
   );
