@@ -1,22 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import {TiHeartFullOutline} from "react-icons/ti";
 
-let Likes = 0;
-
-const click = () => {
-    function handeClick() {
-        Likes += 1;
-    }
-    console.log(handeClick());
-    return (
-        <div className={"likes"}>
-            Likes: {Likes}
-        </div>
-    );
-};
 
 const Test2 = () => {
-  return (
+    const [count, setCount] = useState(0);
+    return (
     <div>
       <div className={"description"}>
         Ülesanne 2:
@@ -27,10 +15,12 @@ const Test2 = () => {
 
       <div style={{display:"flex", alignItems: "center"}}>
         <div className={"likes"}>
-          Likes: <click />
+          Likes: {count}
         </div>
-        <TiHeartFullOutline />
-        <div onClick={click}>Click me</div>
+        <div onClick={() => setCount(count + 1)}>
+            <TiHeartFullOutline />
+        </div>
+          <div>Click me</div>
       </div>
     </div>
   );
