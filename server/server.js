@@ -23,7 +23,8 @@ app.use("/api/v1/users", usersRouter);
 app.use("/static", express.static("dist/static"));
 
 
-app.post("/api/v1/register", (req,res)=>{
+app.post("/api/v1/register", (req, res)=>{
+  console.log(req);
   const age = req.body.age;
   const username = req.body.username;
   if(!req.body || !req.body.age || !req.body.username) return res.status(400).send("Bad request!");
