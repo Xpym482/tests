@@ -1,11 +1,57 @@
 import React from "react";
 
 class Test7 extends React.PureComponent {
+    constructor(props){
+        super(props);
+        this.state = {
+            fullName: "",
+            address: "",
+            phoneNumber: ""
+        };
+    }
+    submitForm = (event) => {
+        console.log(event);
+        event.preventDefault();
+        fetch("/api/v1/users/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.state),
+        })
+            .then(res => res.json())
+            .catch(err => console.log("Error", err));
+    };
+
+    handleChange = (e) => {
+        console.log(e.target.value);
+      this.setState({
+            [e.target.name]: e.target.value,
+          });
+    };
   render() {
     return (
       <div>
         <Task />
-        implement
+        <form onSubmit={this.submitForm}>
+            <div>
+                <input name={"fullName"} type="text" placeholder={"Nimi"} onChange={this.handleChange} value={this.state.fullName}/>
+            </div>
+            <div>
+                <input name={"address"} type="text" placeholder={"Elukoht"} onChange={this.handleChange} value={this.state.address}/>
+            </div>
+            <div>
+                <input name={"phoneNumber"} type="number" placeholder={"Kontaktnumber"} onChange={this.handleChange} value={this.state.phoneNumber}/>
+            </div>
+            <input type="submit" value="Submit" />
+        </form>
+          <form>
+              <label>
+                  Name:
+                  <input type="text" name="name" />
+              </label>
+              <input type="submit" value="Submit" />
+          </form>
       </div>
     );
   }

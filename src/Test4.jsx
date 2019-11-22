@@ -24,6 +24,7 @@ class Test4 extends React.PureComponent{
         product,
         error: null,
       });
+      console.log(product);
     })
     .catch( () =>{
       this.setState({
