@@ -45,13 +45,6 @@ class Test7 extends React.PureComponent {
             </div>
             <input type="submit" value="Submit" />
         </form>
-          <form>
-              <label>
-                  Name:
-                  <input type="text" name="name" />
-              </label>
-              <input type="submit" value="Submit" />
-          </form>
       </div>
     );
   }
