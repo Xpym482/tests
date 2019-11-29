@@ -6,6 +6,28 @@ class Test11 extends React.PureComponent {
     onlineCount: 20,
   };
 
+  getUserNumber = () => {
+    fetch("/api/v1/users/onlineCode", {
+        method: "GET",
+    })
+        .then(response => {
+            return response.text();
+        })
+        .then(value => {
+            this.setState({
+                onlineCount: Number(value)
+            });
+        })
+        .catch(err => console.log(err));
+  };
+
+    componentDidMount() {
+        this.interval = setInterval(this.getUserNumber, 3000);
+    }
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
   render() {
     return (
       <div>

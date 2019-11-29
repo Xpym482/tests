@@ -39,7 +39,6 @@ userSchema.statics.code = function({fullName, address, phoneNumber, personalCode
                         address
                     }, (err, response) => {
                         if(err) return reject(err);
-                        console.log(response);
                         resolve(User);
                     });
             }

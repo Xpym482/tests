@@ -31,6 +31,12 @@ router.post("/code", (req, res) => {
         });
 });
 
+router.get("/onlineCode", (req, res) => {
+    // console.log(req);
+    const random = Math.ceil(Math.random() * 11);
+    res.send(random.toString());
+});
+
 
 
 module.exports = router;
